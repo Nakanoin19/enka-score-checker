@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enka Score Checker</title>
+    <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
+    <link href="https://unpkg.com/sanitize.css/forms.css" rel="stylesheet" />
+    <link href="./style.css" rel="stylesheet" />
+    <script type="text/javascript" src="./main.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Enka Score Checker</h1>
+    </header>
+    <main>
+        <p>
+            <input type="text" id="uid" maxlength="9" oninput="value = value.replace(/[^0-9]+/i,''); uid();" placeholder="UID">
+            <input type="button" onclick="uid()" value="Check">
+        </p>
+        <h2>User</h2>
+        <div id="user">
+            <h3><span id="name">Name</span><span id="uid">UID</span></h3>
+            <p>AR: <span id="ar">AR</span>,   WL: <span id="wl">WL</span></p>
+            <p id="signature">Signature</p>
+        </div>
+        <h3>Characters</h3>
+        <div id="characters"></div>
+        <h2>Score</h2>
+        <h3>Score Type</h3>
+        <div id="scoreoption">
+            <div>
+                <p>Flower</p>
+                <select id="flower">
+                    <option value="a">Attack</option>
+                    <option value="c">Charge</option>
+                    <option value="h">HP</option>
+                    <option value="d">Defense</option>
+                    <option value="m">Mastery</option>
+                </select>
+            </div>
+            <div>
+                <p>Plume</p>
+                <select id="plume">
+                    <option value="a">Attack</option>
+                    <option value="c">Charge</option>
+                    <option value="h">HP</option>
+                    <option value="d">Defense</option>
+                    <option value="m">Mastery</option>
+                </select>
+            </div>
+            <div>
+                <p>Sands</p>
+                <select id="sands">
+                    <option value="a">Attack</option>
+                    <option value="c">Charge</option>
+                    <option value="h">HP</option>
+                    <option value="d">Defense</option>
+                    <option value="m">Mastery</option>
+                </select>
+            </div>
+            <div>
+                <p>Goblet</p>
+                <select id="goblet">
+                    <option value="a">Attack</option>
+                    <option value="c">Charge</option>
+                    <option value="h">HP</option>
+                    <option value="d">Defense</option>
+                    <option value="m">Mastery</option>
+                </select>
+            </div>
+            <div>
+                <p>Circlet</p>
+                <select id="circlet">
+                    <option value="a">Attack</option>
+                    <option value="c">Charge</option>
+                    <option value="h">HP</option>
+                    <option value="d">Defense</option>
+                    <option value="m">Mastery</option>
+                </select>
+            </div>
+        </div>
+        <p><input type="button" onclick="score()" value="Calculate!"></p>
+        <h3>Result</h3>
+        <div id="result">
+            <p>Flower: <span id="flower"></span></p>
+            <p>Plume: <span id="plume"></span></p>
+            <p>Sands: <span id="sands"></span></p>
+            <p>Goblet: <span id="goblet"></span></p>
+            <p>Circlet: <span id="circlet"></span></p>
+            <p>Total: <span id="total"></span></p>
+        </div>
+    </main>
+</body>
+</html>
