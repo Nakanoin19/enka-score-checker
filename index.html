@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Enka Score Checker</title>
-    <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
-    <link href="https://unpkg.com/sanitize.css/forms.css" rel="stylesheet" />
-    <link href="./style.css" rel="stylesheet" />
-    <script type="text/javascript" src="./main.js"></script>
+    <link href="https://unpkg.com/sanitize.css" rel="stylesheet"/>
+    <link href="https://unpkg.com/sanitize.css/forms.css" rel="stylesheet"/>
+    <link href="./style.css" rel="stylesheet"/>
 </head>
 <body>
     <header>
@@ -16,17 +15,23 @@
     </header>
     <main>
         <p>
-            <input type="text" id="uid" maxlength="9" oninput="value = value.replace(/[^0-9]+/i,''); uid();" placeholder="UID">
+            <input type="text" id="uid" maxlength="9" oninput="this.value = this.value.replace(/[^0-9]+/i,'');" placeholder="UID">
             <input type="button" onclick="uid()" value="Check">
         </p>
         <h2>User</h2>
         <div id="user">
-            <h3><span id="name">Name</span><span id="uid">UID</span></h3>
-            <p>AR: <span id="ar">AR</span>,   WL: <span id="wl">WL</span></p>
+            <h3>
+                <span id="name">Name</span>
+                <span id="uid">UID</span>
+            </h3>
+            <p>
+                AR: <span id="ar">--</span>,
+                WL: <span id="wl">--</span>
+            </p>
             <p id="signature">Signature</p>
         </div>
         <h3>Characters</h3>
-        <div id="characters"></div>
+        <div id="characters">--</div>
         <h2>Score</h2>
         <h3>Score Type</h3>
         <div id="scoreoption">
@@ -81,7 +86,7 @@
                 </select>
             </div>
         </div>
-        <p><input type="button" onclick="score()" value="Calculate!"></p>
+        <p><input type="button" onclick="score()" value="Calculate!" id="calc_button" disabled></p>
         <h3>Result</h3>
         <div id="result">
             <p>Flower: <span id="flower"></span></p>
@@ -92,5 +97,6 @@
             <p>Total: <span id="total"></span></p>
         </div>
     </main>
+    <script src="./main.js"></script>
 </body>
 </html>
