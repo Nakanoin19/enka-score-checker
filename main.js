@@ -8,7 +8,7 @@ async function uid() {
     document.querySelector("#characters").innerHTML = "\n";
     var character = await (await fetch("https://raw.githubusercontent.com/EnkaNetwork/API-docs/master/store/characters.json")).json();
     var i = 0;
-    for (let i = 0; i < user.avatarInfoList.length; i++) {
+    for (var i = 0; i < user.avatarInfoList.length; i++) {
         var icon = character[user.avatarInfoList[i].avatarId].SideIconName;
         var html = '<input type="radio" id="' + user.avatarInfoList[i].avatarId + '" name="character" value=' + i + ' />' + '\n' + '<label for="' + user.avatarInfoList[i].avatarId + '"><img class="cicon" src="https://enka.network/ui/' + icon + '.png" />' + '\n' + '</label>' + '\n';
         document.querySelector("#characters").innerHTML += html;
@@ -22,13 +22,13 @@ async function score() {
     var scores = [0, 0, 0, 0, 0];
     var sum;
     var equiplist = user.avatarInfoList[Number(document.querySelector("#characters input:checked").value)].equipList;
-    for (let i = 0; i < 5; i++) {
+    for (var i = 0; i < 5; i++) {
         if (equiplist[i].flat.reliquaryMainstat.mainPropId == "FIGHT_PROP_CRITICAL") {
             scores[i] += equiplist[i].flat.reliquaryMainstat.statValue * 2;
         } else if (equiplist[i].flat.reliquaryMainstat.mainPropId == "FIGHT_PROP_CRITICAL_HURT") {
             scores[i] += equiplist[i].flat.reliquaryMainstat.statValue;
         }
-        for (let j = 0; j < 4; j++) {
+        for (var j = 0; j < 4; j++) {
             if (equiplist[i].flat.reliquarySubstats[j].appendPropId == "FIGHT_PROP_CRITICAL") {
                 scores[i] += equiplist[i].flat.reliquarySubstats[j].statValue * 2;
             } else if (equiplist[i].flat.reliquarySubstats[j].appendPropId == "FIGHT_PROP_CRITICAL_HURT") {
@@ -39,7 +39,7 @@ async function score() {
             if (equiplist[i].flat.reliquaryMainstat.mainPropId == "FIGHT_PROP_ATTACK_PERCENT") {
                 scores[i] += equiplist[i].flat.reliquaryMainstat.statValue;
             }
-            for (let j = 0; j < 4; j++) {
+            for (var j = 0; j < 4; j++) {
                 if (equiplist[i].flat.reliquarySubstats[j].appendPropId == "FIGHT_PROP_ATTACK_PERCENT") {
                     scores[i] += equiplist[i].flat.reliquarySubstats[j].statValue;
                 }
@@ -48,7 +48,7 @@ async function score() {
             if (equiplist[i].flat.reliquaryMainstat.mainPropId == "FIGHT_PROP_CHARGE_EFFICIENCY") {
                 scores[i] += equiplist[i].flat.reliquaryMainstat.statValue;
             }
-            for (let j = 0; j < 4; j++) {
+            for (var j = 0; j < 4; j++) {
                 if (equiplist[i].flat.reliquarySubstats[j].appendPropId == "FIGHT_PROP_CHARGE_EFFICIENCY") {
                     scores[i] += equiplist[i].flat.reliquarySubstats[j].statValue;
                 }
@@ -57,7 +57,7 @@ async function score() {
             if (equiplist[i].flat.reliquaryMainstat.mainPropId == "FIGHT_PROP_HP_PERCENT") {
                 scores[i] += equiplist[i].flat.reliquaryMainstat.statValue;
             }
-            for (let j = 0; j < 4; j++) {
+            for (var j = 0; j < 4; j++) {
                 if (equiplist[i].flat.reliquarySubstats[j].appendPropId == "FIGHT_PROP_HP_PERCENT") {
                     scores[i] += equiplist[i].flat.reliquarySubstats[j].statValue;
                 }
@@ -66,7 +66,7 @@ async function score() {
             if (equiplist[i].flat.reliquaryMainstat.mainPropId == "FIGHT_PROP_DEFENSE_PERCENT") {
                 scores[i] += equiplist[i].flat.reliquaryMainstat.statValue;
             }
-            for (let j = 0; j < 4; j++) {
+            for (var j = 0; j < 4; j++) {
                 if (equiplist[i].flat.reliquarySubstats[j].appendPropId == "FIGHT_PROP_DEFENSE_PERCENT") {
                     scores[i] += equiplist[i].flat.reliquarySubstats[j].statValue;
                 }
@@ -75,7 +75,7 @@ async function score() {
             if (equiplist[i].flat.reliquaryMainstat.mainPropId == "FIGHT_PROP_ELEMENT_MASTERY") {
                 scores[i] += equiplist[i].flat.reliquaryMainstat.statValue / 2;
             }
-            for (let j = 0; j < 4; j++) {
+            for (var j = 0; j < 4; j++) {
                 if (equiplist[i].flat.reliquarySubstats[j].appendPropId == "FIGHT_PROP_ELEMENT_MASTERY") {
                     scores[i] += equiplist[i].flat.reliquarySubstats[j].statValue / 2;
                 }
