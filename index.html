@@ -5,14 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Enka Score Checker</title>
-    <link href="https://unpkg.com/sanitize.css" rel="stylesheet"/>
-    <link href="https://unpkg.com/sanitize.css/forms.css" rel="stylesheet"/>
-    <link href="./style.css" rel="stylesheet"/>
+    <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/mvp.css@1.12.0/mvp.css" rel="stylesheet" />
+    <link href="./style.css" rel="stylesheet" />
 </head>
 <body>
     <header>
         <h1>Enka Score Checker</h1>
     </header>
+    <div class="space"></div>
     <main>
         <p>
             <input type="text" id="uid" maxlength="9" oninput="this.value = this.value.replace(/[^0-9]+/i,'');" placeholder="UID">
@@ -97,6 +99,9 @@
             <p>Total: <span id="total"></span></p>
         </div>
     </main>
+    <footer>
+        <p>using <a href="https://api.enka.network">EnkaNetwork API</a></p>
+    </footer>
     <script src="./main.js"></script>
 </body>
 </html>
