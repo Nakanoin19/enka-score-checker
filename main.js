@@ -37,9 +37,6 @@ const hide_check = (data) => data == undefined?"Hidden":data;
 
 const calcScore = (propId, index, equiplist) =>{
     let score = 0;
-    if(equiplist[index].flat.reliquaryMainstat.mainPropId == propId){
-        score += Number(equiplist[index].flat.reliquaryMainstat.statValue);
-    }
     for(let c = 0; c < 4; c++) {
         if(equiplist[index].flat.reliquarySubstats[c] != undefined){
             if(equiplist[index].flat.reliquarySubstats[c].appendPropId == propId){
@@ -90,12 +87,6 @@ const score = () =>{
 
     let scores = [0, 0, 0, 0, 0];
     for(let i = 0; i < 5; i++){
-        if(equiplist[i].flat.reliquaryMainstat.mainPropId == "FIGHT_PROP_CRITICAL"){
-            scores[i] += Number(equiplist[i].flat.reliquaryMainstat.statValue) * 2;
-        }else if(equiplist[i].flat.reliquaryMainstat.mainPropId == "FIGHT_PROP_CRITICAL_HURT"){
-            scores[i] += Number(equiplist[i].flat.reliquaryMainstat.statValue);
-        }
-
         for(let c = 0; c < 4; c++){
             if(equiplist[i].flat.reliquarySubstats[c] != undefined){
                 if (equiplist[i].flat.reliquarySubstats[c].appendPropId == "FIGHT_PROP_CRITICAL") {
@@ -109,16 +100,17 @@ const score = () =>{
         switch(document.querySelector(`#scoreoption #${artifacts[i]}`).value){
             case "a":
                 scores[i] += calcScore("FIGHT_PROP_ATTACK_PERCENT", i, equiplist);
+                break;
             case "c":
                 scores[i] += calcScore("FIGHT_PROP_CHARGE_EFFICIENCY", i, equiplist);
+                break;
             case "h":
                 scores[i] += calcScore("FIGHT_PROP_HP_PERCENT", i, equiplist);
+                break;
             case "d":
                 scores[i] += calcScore("FIGHT_PROP_DEFENSE_PERCENT", i, equiplist);
+                break;
             case "m":
-                if(equiplist[i].flat.reliquaryMainstat.mainPropId == "FIGHT_PROP_ELEMENT_MASTERY"){
-                    scores[i] += Number(equiplist[i].flat.reliquaryMainstat.statValue / 2);
-                }
                 for(let c = 0; c < 4; c++) {
                     if(equiplist[i].flat.reliquarySubstats[c] != undefined){
                         if(equiplist[i].flat.reliquarySubstats[c].appendPropId == "FIGHT_PROP_ELEMENT_MASTERY"){
@@ -126,6 +118,7 @@ const score = () =>{
                         }
                     }
                 }
+                break;
         }
 
         document.querySelector(`#result #${artifacts[i]}`).innerText = scores[i].toFixed(1);
