@@ -12,7 +12,7 @@ let user_data = null;
 // Utils
 const getUserProfile = async (uid) =>{
     try{
-        const resp = await fetch(`https://enka.network/u/${uid}/__data.json`);
+        const resp = await fetch(`https://enka.network/api/uid/${uid}`);
         const data = await resp.json();
         user_data = data;
         return data;
